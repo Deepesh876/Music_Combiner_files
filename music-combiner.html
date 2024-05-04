@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Combiner</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <h1>Music Combiner</h1>
+
+  <div id="upload-area">
+    <div class="file-input-container">
+      <input type="file" id="file-input" multiple>
+      <label for="file-input" id="file-input-label"></label>
+    </div>
+  </div>
+
+  <div id="selected-files-container">
+    <div id="selected-files-grid"></div>
+  </div>
+
+  <div class="dvi">
+    <button id="combine-btn">Combine Audio</button>
+  </div>
+
+
+
+  <div id="loading-screen">
+    <div class="loader1"></div>
+    <div class="loader2"></div>
+    <div class="loader3"></div>
+    <div class="loader4"></div>
+  </div>
+
+    <div id="preview" class="previews">
+      <h2>Preview</h2>
+  
+      <audio id="preview-audio" controls></audio>
+    </div>
+  
+    <div id="metadata-form">
+      <h2>Metadata</h2>
+
+  
+      <div id="cover-input"></div>
+  
+      <button id="download-btn" disabled>Download Combined Song</button>
+    </div>
+<div class="about">
+  <p>Created by Jayendra choudhary</p>
+  <p>&copy; copyright 2023 by Jayendra choudhary</p>
+</div>
+
+  <script src="./script.js"></script>
+  <script src="path/to/id3-minimized.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg/dist/ffmpeg.min.js"></script>
+</body>
+</html>

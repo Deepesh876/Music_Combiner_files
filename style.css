@@ -1,0 +1,286 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: linear-gradient(to right, #f2f3ff, #fff3f3, #fff3f3);
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  #upload-area {
+    width: 300px;
+    height: 150px;
+    border: 2px dashed #999;
+    background-image: linear-gradient(to left, #f1f1ff, #fff3f3, #fff2f2);
+    border-radius: 30px;
+    text-align: center;
+    line-height: 150px;
+    margin: 20px auto;
+    transition: background-color 0.3s;
+  }
+  
+  .previews {
+    background-color: #ffebb3;
+    color: #9e5f00;
+    padding: 20px;
+    border-radius: 40px;
+    margin-left: 20%;
+    margin-right: 20%;
+  }
+  
+  .previews:hover {
+    background-color: #ffefa7;
+  }
+  
+  #upload-area.dragover {
+    background-color: #f7f7f7;
+  }
+  
+  #loading-screen {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, #d3e3ff, #ffe3e3, #ffdede);
+    z-index: 999;
+  }
+  
+  .loader1 {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    background-color: #ffffff00;
+    border-left: 2px solid #1f1912;
+    border-radius: 90px;
+    animation: spin 2s linear infinite;
+    position: absolute;
+    top: 50%;
+    left: 49.7%;
+    transform: translate(-50%, -50%);
+    filter: blur(1px);
+  }
+  
+  .loader2 {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    background-color: #ffffff00;
+    border-bottom: 2px solid #1f1912;
+    border-radius: 90px;
+    animation: spin 2s linear infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    filter: blur(1px);
+  }
+  
+  .loader3 {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    background-color: #ffffff00;
+    border-top: 2px solid #1f1912;
+    border-radius: 90px;
+    animation: spin 2s linear infinite;
+    position: absolute;
+    top: 50%;
+    left: 50.3%;
+    transform: translate(-50%, -50%);
+    filter: blur(1px);
+  }
+  
+  .loader4 {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    background-color: #ffffff00;
+    border-right: 2px solid #1f1912;
+    border-radius: 90px;
+    animation: spin 2s linear infinite;
+    position: absolute;
+    top: 50%;
+    left: 50.6%;
+    transform: translate(-50%, -50%);
+    filter: blur(1px);
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  #preview {
+    display: none;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  #metadata-form {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  #metadata-form label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  #metadata-form input {
+    width: 300px;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+  
+  #download-btn {
+    padding: 20px;
+    background-color: #ffeeb4;
+    color: #704900;
+    border: none;
+    font-weight: bolder;
+    border-radius: 55px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 10%;
+  }
+  
+  #download-btn:hover {
+    background-color: #180f00;
+    color: #ffeeb4;
+  }
+  
+  #download-btn:disabled {
+    background-color: #ffd6d6;
+    color: #ff8686;
+    cursor: not-allowed;
+  }
+  
+  #combine-btn {
+    background-color: #d4ffc3;
+    color: #0d9b00;
+    font-weight: bolder;
+    border: none;
+    margin-top: 20px;
+    padding: 14px;
+    border-radius: 57px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  #combine-btn:hover {
+    background-color: #010500;
+    color: #d4ffc3;
+  }
+  
+  
+  .file-input-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  #file-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  #file-input-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    height: 20px;
+    background-color: #cde5ff;
+    color: #0036ac;
+    font-weight: bolder;
+    cursor: pointer;
+    border-radius: 24px;
+    transition: all  0.3s ease-in-out;
+  }
+  
+  #file-input-label:hover {
+    background-color: #001022;
+    color: #cde5ff;
+  }
+  
+  #file-input-label:active {
+    background-color: #004080;
+  }
+  
+  #file-input-label::after {
+    content: "Select Files";
+  }
+  
+  .dvi {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  #selected-files-container {
+    margin-top: 16px;
+    display: inline-flex;
+    margin-left: 10%;
+    margin-right: 10%;
+    border-radius: 35px;
+    border: 3px dashed #d3d3d3;
+  }
+  
+  #selected-files-grid {
+    display: grid;
+    padding: 20px;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+  }
+  
+  .selected-file-card {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background-color: #e4e4e479;
+    align-items: center;
+    padding: 16px;
+    border: 1px solid #ddd;
+    font-weight: bolder;
+    border-radius: 34px;
+    text-align: center;
+    transition: all  0.3s ease-in-out;
+  }
+  
+  .selected-file-card:hover {
+    background-color: #dadada;
+    color: #1a1a1a;
+  }
+  
+  .selected-file-card .file-name {
+    margin-top: 8px;
+  }
+  
+  .selected-file-card .remove-btn {
+    color: #ff0000;
+    background-color: #ffd6d6;
+    padding: 8px 13px;
+    border-radius: 80px;
+    font-weight: bolder;
+    cursor: pointer;
+    margin-top: 18px;
+    transition: all  0.3s ease-in-out;
+  }
+  
+  .selected-file-card .remove-btn:hover {
+    background-color: #1d0000;
+    color: #ffc4c4;
+  }
+  
+  .about {
+    padding: 20px;
+    font-weight: bolder;
+    bottom: 0;
+    text-align: center;
+    background-color: #fff9f1;
+    color: #9e5f00b9;
+  }
